@@ -26,33 +26,32 @@ would like RStudio to be the single home for both R and Python.
 
 Objectives:
 
-* Create a Python environment.
-* Install Python packages from RStudio.
-* Use a Python environment.
-* Run an rmarkdown document from Rstudio -- with both R and Python.
-* Run a Python script from RStudio.
-* Run Python code interactively from RStudio.
+* Use a specific, and complex Python environment from RStudio.
+* Run complex Python code in an rmarkdown document from Rstudio.
+* Run complex Python code in an interactive console from RStudio.
 
 ## Demo
 
 ## Setup
 
-Use the R interface to Python
+* [Anaconda](https://docs.continuum.io/anaconda/) is a collection of software
+for data science with Python and R. It contains a package and environment
+manager, which helps users manage a collection of over 7,500+ open-source
+packages.
+
+* [reticulate](https://rstudio.github.io/reticulate/) is an R package that
+enables the interface between R and Python. If available it's automatically used
+by rmakrkdown and RStudio.
+
+* `RETICULATE_PYTHON` is an optional environment variable to control which copy of Python reticulate chooses to bind to. It should be set to the path to a Python interpreter, and that interpreter can either be:
+    * A standalone system interpreter,
+    * Part of a virtual environment,
+    * Part of a Conda environment.
 
 ```{r}
-# install.packages("reticulate")
-library(reticulate)
-
 Sys.setenv(RETICULATE_PYTHON = "/home/mauro/anaconda3/bin/python")
+reticulate::py_config()
 ```
-
-* Install a package and environment manager
-
-> Anaconda is a Python/R data science distribution that contains a package and
-environment manager, which helps users manage a collection of over 7,500+
-open-source packages.
-
--- https://docs.continuum.io/anaconda/
 
 ### Example code
 
