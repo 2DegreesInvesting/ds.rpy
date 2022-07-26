@@ -1,12 +1,15 @@
 ---
-title: "Untitled"
-output: html_document
-date: "2022-07-26"
+output: github_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
 ```
+
+# Demo
 
 ## R
 
