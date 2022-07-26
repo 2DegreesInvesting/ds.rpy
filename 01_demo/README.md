@@ -1,7 +1,9 @@
 
-# Demo
+# Use case: Running complex Python code from RStudio
 
-## R
+## Setup
+
+### R
 
 The [reticulate](https://rstudio.github.io/reticulate/) package allows
 using Python from R and RStudio. Some key features work automatically.
@@ -23,13 +25,13 @@ reticulate::py_config()
 #> NOTE: Python version was forced by RETICULATE_PYTHON
 ```
 
-## Python
+### Python
 
 [Anaconda](https://docs.continuum.io/anaconda/) is a collection of
 software for data science with Python and R. It contains Python itself,
 many Python packages, and a tool called `conda` that manages it all.
 
-Example:
+### Example
 
 ``` python
 # Included in Anaconda
