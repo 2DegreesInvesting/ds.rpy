@@ -17,7 +17,7 @@ both R and Python.
 
 ## Syllabus
 
-### Use case: Run complex Python code from RStudio
+### Use case: Running complex Python code from RStudio
 
 Objective:
 
