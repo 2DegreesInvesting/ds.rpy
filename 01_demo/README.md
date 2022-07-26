@@ -6,12 +6,12 @@
 The [reticulate](https://rstudio.github.io/reticulate/) package allows
 using Python from R and RStudio. Some key features work automatically.
 
-``` r
-# You may want to specify which copy of Python reticulate chooses to bind to
-readLines(here::here(".Renviron"))
-#> [1] "RETICULATE_PYTHON=\"/home/mauro/anaconda3/bin/python\""
-#> [2] ""
+You may want to specify which copy of Python reticulate chooses to bind
+to, e.g. in your .Renviron file:
 
+    RETICULATE_PYTHON="~/anaconda3/bin/python"
+
+``` r
 reticulate::py_config()
 #> python:         /home/mauro/anaconda3/bin/python
 #> libpython:      /home/mauro/anaconda3/lib/libpython3.9.so
@@ -31,21 +31,17 @@ many Python packages, and a tool called `conda` that manages it all.
 
 Example:
 
-This packages came with Anaconda
-
 ``` python
+# Included in Anaconda
 import nltk
 import spacy
-```
 
-``` python
 sent = "Please book my flight to California."
 
 tokenized_sent_nltk = nltk.sent_tokenize(sent)
 [nltk.pos_tag(nltk.word_tokenize(word)) for word in tokenized_sent_nltk]
 
-# This failed and I had to install en_core_web_sm with:
-#   conda install -c conda-forge spacy-model-en_core_web_sm
+# conda install -c conda-forge spacy-model-en_core_web_sm
 #> [[('Please', 'NNP'), ('book', 'NN'), ('my', 'PRP$'), ('flight', 'NN'), ('to', 'TO'), ('California', 'NNP'), ('.', '.')]]
 nlp = spacy.load("en_core_web_sm")
 spacy_doc = nlp(sent)

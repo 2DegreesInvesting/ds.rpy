@@ -16,10 +16,13 @@ knitr::opts_chunk$set(
 The [reticulate](https://rstudio.github.io/reticulate/) package allows using
 Python from R and RStudio. Some key features work automatically.
 
-```{r}
-# You may want to specify which copy of Python reticulate chooses to bind to
-readLines(here::here(".Renviron"))
+You may want to specify which copy of Python reticulate chooses to bind to, e.g. in your .Renviron file:
 
+```{r echo=FALSE, comment=""}
+writeLines(readLines(here::here(".Renviron")))
+```
+
+```{r}
 reticulate::py_config()
 ```
 
@@ -31,21 +34,17 @@ and a tool called `conda` that manages it all.
 
 Example:
 
-This packages came with Anaconda
-
 ```{python}
+# Included in Anaconda
 import nltk
 import spacy
-```
 
-```{python}
 sent = "Please book my flight to California."
 
 tokenized_sent_nltk = nltk.sent_tokenize(sent)
 [nltk.pos_tag(nltk.word_tokenize(word)) for word in tokenized_sent_nltk]
 
-# This failed and I had to install en_core_web_sm with:
-#   conda install -c conda-forge spacy-model-en_core_web_sm
+# conda install -c conda-forge spacy-model-en_core_web_sm
 nlp = spacy.load("en_core_web_sm")
 spacy_doc = nlp(sent)
 
