@@ -9,7 +9,8 @@ knitr::opts_chunk$set(
 )
 ```
 
-# Using Python from RStudio
+
+## [RStudio: A single home or R and Python](https://www.rstudio.com/resources/webinars/rstudio-a-single-home-for-r-and-python/)
 
 The goal of this meetup is to help you to use Python from RStudio.
 
@@ -24,6 +25,10 @@ their work. Typically, each language is used from a different IDE but switching
 IDE is painful, and many of us at 2DII are already familiar with RStudio. We
 would like RStudio to be the single home for both R and Python.
 
+## Syllabus
+
+### Use case: Run complex Python code from RStudio
+
 Objective:
 
 * From RStudio, run complex Python code in .Rmd and .py files.
@@ -36,9 +41,10 @@ Objective:
 project.
 * [Ideas](https://bit.ly/dsi-ideas) for future meetups.
 * [RStudio: A single home for R & Python (webinar)](https://rstudio.com/resources/webinars/rstudio-a-single-home-for-r-and-python/).
-* [Anaconda](https://docs.continuum.io/anaconda/).
-* [reticulate](https://rstudio.github.io/reticulate/).
+* [Anaconda Distribution](https://docs.continuum.io/anaconda/).
+* [reticulate package](https://rstudio.github.io/reticulate/).
 
---
+## Thanks 
 
-Thanks [MirijaHa](https://github.com/MirijaHa).
+Thanks [MirijaHa](https://github.com/MirijaHa) for motivating this meetup and
+providing the example code.
