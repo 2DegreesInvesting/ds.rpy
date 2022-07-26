@@ -26,65 +26,52 @@ Objectives:
 
 ## Demo
 
+## Setup
+
+Use the R interface to Python
+
+``` r
+# install.packages("reticulate")
+library(reticulate)
+
+Sys.setenv(RETICULATE_PYTHON = "/home/mauro/anaconda3/bin/python")
+```
+
+-   Install a package and environment manager
+
+> Anaconda is a Python/R data science distribution that contains a
+> package and environment manager, which helps users manage a collection
+> of over 7,500+ open-source packages.
+
+– <https://docs.continuum.io/anaconda/>
+
 ### Example code
 
 ``` python
 import nltk
 import spacy
+# conda install -c conda-forge spacy-model-en_core_web_sm
 
 sent = "Please book my flight to California."
 
 tokenized_sent_nltk = nltk.sent_tokenize(sent)
 [nltk.pos_tag(nltk.word_tokenize(word)) for word in tokenized_sent_nltk]
-
+#> [[('Please', 'NNP'), ('book', 'NN'), ('my', 'PRP$'), ('flight', 'NN'), ('to', 'TO'), ('California', 'NNP'), ('.', '.')]]
 nlp = spacy.load("en_core_web_sm")
 spacy_doc = nlp(sent)
+
+print(spacy_doc)
+#> Please book my flight to California.
 for token in spacy_doc:
     print(token.text, token.pos_)
+#> Please INTJ
+#> book VERB
+#> my PRON
+#> flight NOUN
+#> to ADP
+#> California PROPN
+#> . PUNCT
 ```
-
--   Install `python` must be installed.
-
-``` r
-Sys.which("python")
-#>            python 
-#> "/usr/bin/python"
-```
-
--   Install the R package [reticulate: R interface to
-    Python](https://rstudio.github.io/reticulate/).
-
-``` r
-# install.packages("reticulate")
-library(reticulate)
-```
-
-Running python code interactive triggers:
-
-``` r
-> reticulate::repl_python()
-No non-system installation of Python could be found.
-Would you like to download and install Miniconda?
-Miniconda is an open source environment management system for Python.
-See https://docs.conda.io/en/latest/miniconda.html for more details.
-```
-
-Maybe pyhton is not discovered by rstudio?
-
-``` python
-1
-#> 1
-```
-
-### Create a Python environment
-
-### TODO
-
--   Install Python packages from RStudio.
--   Use a Python environment.
--   Run an rmarkdown document from Rstudio – with both R and Python.
--   Run a Python script from RStudio.
--   Run Python code interactively from RStudio.
 
 ## Resources
 

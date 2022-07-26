@@ -42,46 +42,35 @@ Use the R interface to Python
 ```{r}
 # install.packages("reticulate")
 library(reticulate)
+
+Sys.setenv(RETICULATE_PYTHON = "/home/mauro/anaconda3/bin/python")
 ```
 
-It's recommended to use a dedicated virtual environment.
+* Install a package and environment manager
 
-* Install Python itself.
+> Anaconda is a Python/R data science distribution that contains a package and
+environment manager, which helps users manage a collection of over 7,500+
+open-source packages.
 
-```{r}
-version <- "3.9.12"
-install_python(version)
-virtualenv_create("r-reticulate", version = version)
-```
-
-* Install Python packages.
-
-```{r}
-use_virtualenv("r-reticulate")
-
-virtualenv_install("r-reticulate", "nltk")
-virtualenv_install("r-reticulate", "spacy")
-virtualenv_install("r-reticulate", "en_core_web_sm")
-```
+-- https://docs.continuum.io/anaconda/
 
 ### Example code
 
 ```{python}
 import nltk
 import spacy
-import en_core_web_sm
-
-nltk.download('punkt')
-nltk.download('averaged_perceptron_tagger')
+# conda install -c conda-forge spacy-model-en_core_web_sm
 
 sent = "Please book my flight to California."
 
 tokenized_sent_nltk = nltk.sent_tokenize(sent)
 [nltk.pos_tag(nltk.word_tokenize(word)) for word in tokenized_sent_nltk]
 
-# nlp = spacy.load("en_core_web_sm")
-nlp = en_core_web_sm.load()
+nlp = spacy.load("en_core_web_sm")
 spacy_doc = nlp(sent)
+
+print(spacy_doc)
+
 for token in spacy_doc:
     print(token.text, token.pos_)
 ```
